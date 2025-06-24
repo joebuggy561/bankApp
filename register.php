@@ -97,6 +97,28 @@ if(isset($_POST['apply'])){
     $phone_number_last = substr($phone_number, -8);
     $account_number = "50" . $phone_number_last;
 
+
+    $query_db = "SELECT account_number FROM REGISTER WHERE account_number = ?";
+    include './components/connect.php';
+    if($account_number){
+        $stmt = mysqli_prepare($dbConnect, $query_db);
+        $stmt->bind_param("s", $account_number);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if($result->num_rows >0){
+            header("Location: index.php?error=Account number already exist");
+            die();
+        }else{
+            header("Location: pinpage.php");
+            $stmt->close();
+        }
+    }
+   
+    // $query_db = "SELECT * FROM REGISTER WHERE account_number = '$account_number'";
+
+    
+   
+
     $default_wallet = 10000;
 
     
@@ -114,7 +136,8 @@ if(isset($_POST['apply'])){
     $response = mysqli_query($dbConnect, $Query);
 
     if($response){
-        header("Location: index.php?success=Registration successful");
+        session_start();
+        $_SESSION['email'] = $email;
         header("Location:pinpage.php");
     }else{
         if (mysqli_errno($dbConnect) == 1062) {
@@ -125,6 +148,8 @@ if(isset($_POST['apply'])){
         echo mysqli_errno($dbConnect);
         exit();
     }
+
+
 
 
 

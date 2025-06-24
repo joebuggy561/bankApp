@@ -10,6 +10,7 @@ include "./components/connect.php";
 $email = $_SESSION['email'];
 
 $query = "SELECT id, first_name, last_name, email, account_number, default_wallet FROM REGISTER WHERE email = ?";
+
 $stmt = mysqli_prepare($dbConnect, $query);
 
 $stmt->bind_param("s", $email);

@@ -1,0 +1,17 @@
+check if when generating account number their no similar account unumber in the data base
+first query your database ---> $acc_query "SELECT ACCOUNT_NUMBER FROM users WHERE account_number - $acc_no;
+$resp = mysqli_query($dbConnect, $acc_query);
+$rez = mysqli_fetch_all($resp);
+if($rez){
+ print_r($rez);
+}else{
+}
+}else{
+header("Location: login.php");
+if you want to reset pin they will ask you for the old pin beofr you can reset it one and new
+
+confirm pin
+
+} if(isset($_POST['setPin])){
+$upd_query = "UPDATE USERS SET ACCOUNT_NUMBER = '$acc_no', teansacrtion_pin='$tranz_pin' WHERE EMAIL = '$email'";
+ }

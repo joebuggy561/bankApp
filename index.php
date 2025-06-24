@@ -96,7 +96,7 @@
                                 <button type="submit" name="apply" class="btn btn-primary">Save</button>
                             </div>
 
-                             <p class="text-center">Dont have an account? <a href="register.php">Sign Up">Register</a></p>
+                             <p class="text-center">Already have an account? <a href="login.php">Login In</a></p>
                         </form>
                     </div>
                 </article>
