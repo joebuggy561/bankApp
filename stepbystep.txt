@@ -15,3 +15,11 @@ confirm pin
 } if(isset($_POST['setPin])){
 $upd_query = "UPDATE USERS SET ACCOUNT_NUMBER = '$acc_no', teansacrtion_pin='$tranz_pin' WHERE EMAIL = '$email'";
  }
+
+
+ Assignment---
+
+ confirm pin
+ logout
+ image update
+ prevent the image from sending an empty file to the data base

@@ -41,7 +41,7 @@ if(isset($_POST['pin_submit'])){
     $query_ = "UPDATE REGISTER SET user_pin='$user_pin' WHERE email = '$email' ";
     $result = mysqli_query($dbConnect, $query_);
     if($result){
-        header("Location: dashboard.php");
+        header("Location: confirmpin.php");
         exit();
     }
 }else{

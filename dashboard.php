@@ -10,6 +10,22 @@ if(!isset($_SESSION['email'])){
 include "./components/connect.php";
 
 
+// time out session
+// session_start();
+// if (!issest($_SESSION['token']) || $_SESSION['token_exp'] < time()){
+// header("Location: login.php?error=Your session has expired");
+// include"/components/connect.php/"
+// write a query that will bring the user information from the back end
+// $emil = $_SESSION['email'];
+// $query = "SESSION username, account_number, wallet, FROM users WHERE email="$email";
+// $response = mysqli_fetch_all($response, MYSQLI_ASSOC);
+// $user = mysql_fetch_assco($response)
+// if($user){
+//  print_r($user);
+// }
+// }
+
+
 
 
 // $query = "SELECT * FROM REGISTER WHERE email = '{$_SESSION['email']}'";
@@ -80,8 +96,13 @@ if($user = $result->fetch_assoc()){
 
                     <div class="col-md-6">
                     <div class="card text-center border-0 shadow-sm rounded-3 h-100">
+                        <!-- this is coming from the backend  -->
                         <div class="card-body">
-                        <img src="path/to/profile.jpg" alt="User profile picture" class="rounded-circle mb-3" width="80" height="80">
+                        <img src=<?php echo $register['profile_picture'] || 'imge.png'?> alt='User profile picture' class='rounded-circle mb-3' width='80' height='80'> />
+                        <form action="edit_profile.php" method="POST" enctype="multipart/form-data">
+                            <input type="file" name="img_update">
+                            <button type="file" name="changeDP">Change profile Picture</button>
+                        </form>   
                         <p class="mb-1 fw-semibold text-dark"><?php echo $user['email']; ?></p>
                         <p class="text-muted">Account Number: <?php echo $user['account_number']; ?></p>
                         </div>

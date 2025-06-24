@@ -149,10 +149,5 @@ if(isset($_POST['apply'])){
         exit();
     }
 
-
-
-
-
-
 }
 ?>
